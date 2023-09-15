@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+.container{
+  width: 600px;
+  margin-inline: auto;
+  text-align: center;
+  margin-top: 50px;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+<button onclick="renderDrivers()" id="driveButton"><strong>View Car Drivers</strong></button>
+
+<button onclick="renderWashers()" id="washButton"><strong>View Car Washers</strong></button>
+
+<div id="render"></div>
+
+<div id="renderDriverBackground"></div>
+
+<div id="renderCarwasher"></div>
+</div>
+
+  <script>
+
+function renderDrivers(){
+      let renderDrivers = document.getElementById("render")
+       renderDrivers.innerHTML = 
+       `<br>
+       <button class="drivers">Kuya Peter</button>
+       <button class="drivers">Kuya Bert</button>
+       <button class="drivers">Kuya Kalog</button>
+       `; 
+       chooseDriver();
+}
+
+function chooseDriver(){
+  var numberOfDrivers = document.querySelectorAll(".drivers").length
+
+  for(var i = 0; i < numberOfDrivers; i++){
+    document.querySelectorAll(".drivers")[i].addEventListener("click",function(){
+
+      var switchDrivers = this.innerHTML;
+
+      switch(switchDrivers){
+        case "Kuya Peter":
+          let kuyaPeter = document.getElementById("renderDriverBackground");
+          kuyaPeter.innerHTML = `<h1>Background:</h1><br>
+          <strong>Name:</strong> ${peter.name}<br>
+          <strong>Age:</strong> ${peter.age} years old<br>
+          <strong>Experience:</strong> ${peter.workExperience} Truck driver<br><br>
+          <button onclick="alertDrive('peter')">Drive My Car</button>`;
+        break;
+
+        case "Kuya Bert":
+          let kuyaBert = document.getElementById("renderDriverBackground");
+          kuyaBert.innerHTML = `<h1>Background:</h1><br>
+          <strong>Name:</strong> ${berting.name}<br>
+          <strong>Age:</strong> ${berting.age} years old<br>
+          <strong>Experience:</strong> ${berting.workExperience} Race car driver<br><br>
+          <button onclick="alertDrive('berting')">Drive My Car</button>`;
+        break;
+
+        case "Kuya Kalog":
+          let kuyaKalog = document.getElementById("renderDriverBackground");
+          kuyaKalog.innerHTML = `<h1>Background:</h1><br>
+          <strong>Name:</strong> ${kalog.name}<br>
+          <strong>Age:</strong> ${kalog.age} years old<br>
+          <strong>Experience:</strong> ${kalog.workExperience} Taxi driver<br><br>
+          <button onclick="alertDrive('kalog')">Drive My Car</button>`;
+        break;
+
+
+        default:
+        break;
+      }
+    });
+  }
+}
+
+
+function Driver(name, age, workExperience) {
+       this.name = name;
+       this.age = age;
+       this.workExperience = workExperience;
+       this.driveMyCar = chooseDriver();
+    
+    }
+    const peter = new Driver(
+      'Peter John Reyes', 23, '2 years');
+
+    const berting = new Driver(
+      'Kuya Berting Rodriguez', 27, '5 years'
+    )
+    const kalog = new Driver(
+      'Mang Kalog Sanchez', 42, '10 years'
+    )  
+
+  function renderWashers(){
+    let renderWashers = document.getElementById("render")
+      renderWashers.innerHTML = 
+      `<br>
+      <button class="washers">Ms Riley</button>
+      <button class="washers">Ms Mia</button>
+      <button class="washers">Ms Lana</button>
+      `; 
+      chooseWasher();
+}
+
+    function chooseWasher(){
+  var numberOfDrivers = document.querySelectorAll(".washers").length
+
+  for(var i = 0; i < numberOfDrivers; i++){
+    document.querySelectorAll(".washers")[i].addEventListener("click",function(){
+
+      var switchDrivers = this.innerHTML;
+
+      switch(switchDrivers){
+        case "Ms Riley":
+          let msRiley = document.getElementById("renderDriverBackground");
+          msRiley.innerHTML = `<h1>Background:</h1><br>
+          <strong>Name:</strong> ${riley.name}<br>
+          <strong>Age:</strong> ${riley.age} years old<br>
+          <strong>Experience:</strong> ${riley.workExperience} Man driver<br><br>
+          <button onclick="alertWash('riley')">Wash My Car</button>`;
+        break;
+
+        case "Ms Mia":
+          let msMia = document.getElementById("renderDriverBackground");
+          msMia.innerHTML = `<h1>Background:</h1><br>
+          <strong>Name:</strong> ${mia.name}<br>
+          <strong>Age:</strong> ${mia.age} years old<br>
+          <strong>Experience:</strong> ${mia.workExperience} Massage therapist<br><br>
+          <button onclick="alertWash('mia')">Wash My Car</button>`;
+        break;
+
+        case "Ms Lana":
+          let msLana = document.getElementById("renderDriverBackground");
+          msLana.innerHTML = `<h1>Background:</h1><br>
+          <strong>Name:</strong> ${lana.name}<br>
+          <strong>Age:</strong> ${lana.age} years old<br>
+          <strong>Experience:</strong> ${lana.workExperience} Gym Instructor<br><br>
+          <button onclick="alertWash('lana')">Wash My Car</button>`;
+        break;
+
+
+        default:
+        break;
+      }
+    });
+  }
+}
+function Washer(name, age, workExperience) {
+       this.name = name;
+       this.age = age;
+       this.workExperience = workExperience;
+       this.driveMyCar = chooseDriver();
+    
+    }
+    const riley = new Washer(
+      'Riley Rides', 23, '2 years');
+
+    const mia = new Washer(
+      'Mia LaKhifa', 27, '5 years'
+    )
+    const lana = new Washer(
+      'Lana Rodeo', 42, '10 years'
+    )  
+
+function alertDrive(name){
+  if(name === 'peter'){
+    alert("Peter John Reyes Will drive your car")
+  }
+  else if(name === 'berting'){
+    alert("Kuya Berting Rodriguez Will drive your car")
+  }
+  else if(name === 'kalog'){
+    alert("Mang Kalog Sanchez Will drive your car")
+  }
+}
+function alertWash(name){
+  if(name === 'riley'){
+    alert("Ms Riley Rides will wash you and your car")
+  }
+  else if(name === 'mia'){
+    alert("Ms Mia Lakhifa will wash you and your car")
+  }
+  else if(name === 'lana'){
+    alert("Ms Lana Rodeo will wash you and your car")
+  }
+}
+  </script>
+</body>
+</html>
